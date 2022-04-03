@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Meal from '../Meal/Meal';
+import Cart from '../Cart/Cart';
 
 const Meals = () => {
     const [searchText,setSearch]=useState('')
@@ -16,10 +18,20 @@ const Meals = () => {
     return (
         <div>
            <input className="bg-amber-300" onChange={searchFood} type="text" /> 
-           <h1>
-               mels{meals.length}
-               
-           </h1>
+           <div>
+           <div className="grid grid-flow-col gap-4">
+            <div className="col-span-3 grid md:grid-cols-3">
+                
+            {
+                meals.map(meal =><Meal meal={meal}></Meal>)
+            }
+            </div>
+            <div className="row-span-1">
+                <Cart></Cart>
+            </div>
+         </div>
+           </div>
+        
         </div>
     );
 };
