@@ -1,16 +1,18 @@
 import React from 'react';
 
 const Meal = (props) => {
-    const {strMealThumb,strInstructions,strMeal}=props.meal;
+  const {handelShowDetails,meal}=props;
+    const {strMealThumb,strInstructions,strMeal}=meal;
     return (
-        <div  >
-         <div  className="text-center w-60 p-5">
-           <img className="w-40  mx-auto " src={strMealThumb}></img>
+        <div >
+         <div  className="text-center w-82 py-3 px-0 shadow-lg">
+           <img className="w-52  mx-auto " src={strMealThumb}/>
          <h1>{strMeal}</h1>
             <p>
           {  strInstructions.length > 40 ? strInstructions.slice(0, 40) + '...' : strInstructions }
             </p>
-            <button className="bg-amber-600 px-5 py-2 font-bold">Show Dtails</button>
+            
+            <button onClick={()=>handelShowDetails()} className="bg-amber-600 px-5 py-2 font-bold">Show Details</button>
          </div>
         </div>
     );
